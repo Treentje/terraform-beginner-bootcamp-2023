@@ -54,23 +54,45 @@ BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
 PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
 UBUNTU_CODENAME=jammy
 ```
-###Shebang
+#### Shebang
 
 A Shebang (pronounced Sha-bang) tells the bash script what program that will interpet the script. eg. '#!/bin/bash'
 
 ChatGPT recommended this format for bash: '#!/usr/bin/env bash'
 
-
-
 - for portability 
 - will search the user's Path for the bash executable
 
-When executing bash script we can use the './'shorthand notiation to execute the bash script
 
-[Shebang #!](https://en.wikipedia.org/wiki/Shebang_(Unix))
+[Shebang #! Wikipedia page](https://en.wikipedia.org/wiki/Shebang_(Unix))
 
-### Linux consideration
+### Execution considerations
+
+When executing bash script we can use the './'shorthand notiation to execute the bash script.
+
+eg. './bin/install_terraform_CLI'
+
+When executing the bash script in .gitpod.yml we need to point the script to a program to interpertate it.
+
+eg. 'source ./bin/install_terraform_CLI'
+
+### Linux permissions consideration
+
+In order to make our bash scripts executable we need to change linux permission for the fix to be executable at the user mode.
+
+```sh
+Chmod u+x ./bin/install_terraform_CLI
+```
+Alternatively;
+```sh
+chmod 744 ./bin/install_terraform_CLI
+```
 
 [Chmod - access rights in linux](https://en.wikipedia.org/wiki/Chmod)
+
+### Github Lifecycle (Before, Init, Command)
+
+We need to be careful when using the Init because it will not rerun if we restart an exiisting workspace.
+
 [Gitpod documentation - (Check for code traps!)](https://www.gitpod.io/docs/configure/workspaces/workspace-lifecycle)
 
