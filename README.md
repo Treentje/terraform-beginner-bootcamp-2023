@@ -12,6 +12,8 @@ The general format:
 - **MINOR** version when you add functionality in a backward compatible manner
 - **PATCH** version when you make backward compatible bug fixes
 
+ 1_semantic_versioning
+=======
 ## References Terraform CLI refactor
 
 ### Considerations with the Terraform CLI changes
