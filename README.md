@@ -98,3 +98,57 @@ We need to be careful when using the Init because it will not rerun if we restar
 
 [Gitpod documentation - (Check for code traps!)](https://www.gitpod.io/docs/configure/workspaces/workspace-lifecycle)
 
+### Working Env Vars
+
+#### env command
+
+We van list out all Environment Variables (env Vars) using the 'env'command.
+
+We can filter specific env vars using grep eg. 'env | grep AWS_'
+
+#### Setting and unsetting Env Vars
+
+In the terminal we van set using 'export Hello='World'
+
+In the terminal we unset using 'unset Hello'
+> Note to oneself, this would be a fun code trap. Check for weird variables.
+
+We can set an env var temporarily when just running a command:
+
+```sh
+HELLO='world' ./bin/print_message
+```
+
+Within a bash script we van set env without writing export eg.
+
+```sh
+#!/usr/bin/env bash
+
+HELLO='World'
+
+echo $HELLO
+```
+
+## Printing Vars
+
+We can print an env var using echo eg. 'echo $HELLO'
+
+#### Scoping of Env Vars
+
+When you open up new bash terminals in VSCode it will not be aware of env vars that you have set in another window.
+
+If you want to Env Vars to persist across all future bash terminals that are open you need to set env vars in you bash profile (Global variables). eg. '.bash_profile'
+
+#### Persisting Env Vars in Gitpod
+
+We van persist env vars into gitpo by storing then in Gitpod Secret Storage.
+
+```
+gp env HELLO='World'
+```
+
+All future workspaces launched will s et the env vars for all bash terminals opened in those workspaces.
+
+You can also set env vars in the '.gitpod.yml'but this can only contain non-sensitive env vars.
+
+
