@@ -159,8 +159,17 @@ AWS CLI is installed for the project via the bash script ['./bin/install_aws_cli
 [Getting started Install AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 [AWS CLI env vars](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
 
-
 We can check if our AWS credentials is configured correctly by running the following AWS CLI command:
 ```sh
 aws sts get-caller-identity
+```
+
+If it is succesfull you should see a json payload return that looks like this:
+
+```json
+{
+    "UserId": "AIXXXXXXXXXXGZSO4TCFS",
+    "Account": "910000000000",
+    "Arn": "arn:aws:iam::910000000000:user/terraform-beginner-bootcamp-2023"
+}
 ```
